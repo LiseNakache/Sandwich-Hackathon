@@ -1,0 +1,30 @@
+{
+  "name": "sandwichhackathon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiseNakache/Sandwich-Hackathon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LiseNakache/Sandwich-Hackathon/issues"
+  },
+  "homepage": "https://github.com/LiseNakache/Sandwich-Hackathon#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.5",
+    "fontawesome": "^4.7.2",
+    "handlebars": "^4.0.10",
+    "jquery": "^3.2.1",
+    "mongoose": "^4.11.13",
+    "morgan": "^1.8.2",
+    "request": "^2.82.0"
+  }
+}
