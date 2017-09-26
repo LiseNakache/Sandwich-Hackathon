@@ -1,11 +1,10 @@
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema
 
 var sandwichSchema = new mongoose.Schema ({
-    username : String,
-    ingredients : [ingredientsSchema],
-    sauce : [sauceSchema]
+    ingredients : [String],
+    sauces : [String]
 })
+
 
 var Sandwich = mongoose.model("sandwich",sandwichSchema)
 
