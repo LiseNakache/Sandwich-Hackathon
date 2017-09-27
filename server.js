@@ -22,9 +22,8 @@ mongoose.connect('mongodb://localhost/SandwichDB', function() {
 
 
 app.get('/', function (request, response) {
-  // response.sendFile(__dirname + './index.html');
+  response.sendFile(__dirname + './create.html');
 });
-
 
 
 //Login-Create Account
@@ -39,6 +38,31 @@ app.post("/", function(req, res) {
         }
     });
 });
+
+
+app.post('/:id/ingredients', function(req, res) {
+    User.findById(req.params.id),function(err,thisUser) {
+        if (err) { res.send(err) };
+        thisUser.sandwich.push(req.body);
+        thisUser.save(function (err,ingredientsAdded) {
+            if (err) {res.send(err)}
+             res.send(thisUser);
+            console.log("the ingredient was added to the user : " + thisUser)
+          });
+    }
+})
+
+// app.post('/post/:postId/comments', function (req, res) {
+//     Post.findById(req.params.postId, function (err, thisPost) {
+//       if (err) { res.send(err) };
+//       thisPost.comments.push(req.body);
+//       thisPost.save(function (err,commentAdded) {
+//         if (err) {res.send(err)}
+//          res.send(thisPost);
+//         console.log("the comment was added to the post : " + thisPost)
+//       });
+//     })
+//   });
 
 //GET Sandwhich page
 app.get("/:id/ingredients", function(req, res) {
