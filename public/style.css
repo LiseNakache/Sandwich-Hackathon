@@ -1,60 +1,95 @@
 
-/* .size {
-    width: 45%;
-} */
+*{box-sizing : border-box;}
+
+.madesandwich {
+    overflow: hidden;
+    height: 300px;
+    display: block;
+    float: left;
+    border : 1px solid red;
+    width : 33.33%;
+    padding : 2px;
+}
+
+.sandwich-img {
+    opacity: 1;
+    width: 100%;
+    position : relative ;
+    display: inline-block;
+    overflow: hidden;
+    margin: 0;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+
+  .middle {
+    width : 90%;
+    padding-top : 50px;
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+  }
+  
+  .madesandwich:hover .sandwich-img {
+    opacity: 0.3;
+  }
+  
+  .madesandwich:hover .middle {
+    opacity: 1;
+  }
+  
+  .explanation {
+    background-color:rgba(18, 101, 224, 0.61);
+    color: black;
+    font-size: 16px;
+    padding:20px 30px;
+  }
+
+  .title-img{
+      font-weight : bold;
+      font-size: 18px;
+  }
+
+  .pick-btn {
+    display: inline-block;
+    border-radius: 5px;
+    background-color: rgb(76, 228, 202);
+    border: none;
+    color: #130101;
+    font-size: 16px;
+    padding: 10px;
+    width: 50px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+
 
 .about {
-    /* -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-    /* width: 50%; */
-    /* padding: 20px;
-    overflow: hidden; */
     border: 3px solid red;
-    /* -webkit-border-radius: 22px;
-    border-radius: 22px;
     font: normal 29px/1 "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     color: rgba(255, 255, 255, 1);
     text-align: center;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
-    background: #c6c6c6;
+    opacity: 0.5%;
     -webkit-box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.3);
     box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.3);
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); */
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
     height: 55%;
 }
 
 .carousel {
-    /* -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box; */
-    /* width: 50%; */
-    /* height: 76%; */
-    /* padding: 20px;
-    overflow: hidden; */
-    border: 2px solid blue;
-    /* -webkit-border-radius: 22px;
-    border-radius: 22px;
-    font: normal 29px/1 "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    color: rgba(255, 255, 255, 1);
-    text-align: center;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    background: #c6c6c6;
-    -webkit-box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.3);
-    box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.3);
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); */
     height: 55%;
 }
 
 .formbox {
-    /* -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box; */
-    /* width: 100%;*/
     padding: 20px;
-    /* overflow: hidden; */
     border: none;
     -webkit-border-radius: 22px;
     border-radius: 22px;
@@ -70,8 +105,10 @@
 }
 
 
+
+
 /* .background {
-=======
+
 .miy-sand{
      width: 50%;
      height: 100px;
@@ -148,7 +185,7 @@ body {
     background-size: cover;
 }
 
-.item {
+.pictures {
     width: 100%;
     height: 100%;
 
