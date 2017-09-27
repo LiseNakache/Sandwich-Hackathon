@@ -36,6 +36,10 @@ mongoose.connect('mongodb://localhost/SandwichDB', function() {
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(morgan('dev'));
 
+app.get("/", function(req, res){
+  res.sendFile(__dirname + "/index.html")
+})
+
 //Login-Create Account
 app.post("/", function(req, res){
   var user = new User(req.body);
