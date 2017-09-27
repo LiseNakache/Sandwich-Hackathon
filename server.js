@@ -75,6 +75,21 @@ app.put("/:id/ingredients", function(req, res){
   })
 })
 
+//GET ready made sanwhiches
+app.get("/:id/readymade", function(req, res){
+  User.findById(req.params.id, function(err, user){
+    if(err){
+      console.log(err);
+    } else {
+      res.send(user)
+    }
+  })
+})
+
+app.put("/:id/readymade", function(req,res){
+  User.findById(req.user._id)
+})
+
 app.listen(port);
 console.log("=================");
 console.log("I am a working on Sandwhich " + port);
