@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *{box-sizing : border-box;}
 
 .madesandwich {
@@ -91,3 +92,166 @@
     opacity: 1;
     right: 0;
   } */
+=======
+
+/* .size {
+    width: 45%;
+} */
+
+.about {
+    /* -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    /* width: 50%; */
+    /* padding: 20px;
+    overflow: hidden; */
+    border: 3px solid red;
+    /* -webkit-border-radius: 22px;
+    border-radius: 22px;
+    font: normal 29px/1 "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    background: #c6c6c6;
+    -webkit-box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); */
+    height: 55%;
+}
+
+.carousel {
+    /* -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box; */
+    /* width: 50%; */
+    /* height: 76%; */
+    /* padding: 20px;
+    overflow: hidden; */
+    border: 2px solid blue;
+    /* -webkit-border-radius: 22px;
+    border-radius: 22px;
+    font: normal 29px/1 "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    background: #c6c6c6;
+    -webkit-box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); */
+    height: 55%;
+}
+
+.formbox {
+    /* -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box; */
+    /* width: 100%;*/
+    padding: 20px;
+    /* overflow: hidden; */
+    border: none;
+    -webkit-border-radius: 22px;
+    border-radius: 22px;
+    font: normal 20px/1 "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    background: #c6c6c6;
+    -webkit-box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+/* .background {
+=======
+.miy-sand{
+     width: 50%;
+     height: 100px;
+     border: 5px red solid;
+     float: left;
+
+ }
+ .build-in-sand{
+    width: 50%;
+    height: 100px;
+    border: 5px blue solid;
+ }
+ .whatever {
+    font-size: 20px;
+    width: 50%;
+    padding: 30px; 
+    float: right;
+    display: inline;
+ }
+ .dropdown-menu > li > a {
+     display:inline-block;
+ }
+ .open > .dropdown-menu {
+    display: block;
+    width: 77%;
+    font-size: 20px;
+ }
+ .btn-danger {
+    font-size: 40px;
+ }
+ .btn-dropdown{
+    position: absolute;
+    right: 0;
+ }
+ .food-type{
+    float: left;
+    width: 33.333%;
+ }
+   .sauce-sand   {
+     margin-top: 150px;
+ } 
+
+  .extras-sand {
+    margin-top: 150px;
+ }  
+
+ .vegetables-sand{
+    margin-top: 150px;
+}  
+
+.background {
+
+    z-index: 5;
+    background: url('https://previews.123rf.com/images/kritchanut/kritchanut1507/kritchanut150700541/43016898-Wood--table-top-as-kitchen-island-on-blur-kitchen-background-can-be-used-for-display-or-montage-your--Stock-Photo.jpg') no-repeat center fixed;
+    position: relative;
+    background-size: cover;
+    min-height: 100vh;
+
+    /* margin-top: 100px;
+    margin-bottom: 100px; */
+
+
+/* .formbox {
+    margin-bottom: 100px
+} */
+
+.about_and_carousel_elements {
+    margin-top: 100px;
+}
+
+body {
+    background: url('https://previews.123rf.com/images/kritchanut/kritchanut1507/kritchanut150700541/43016898-Wood--table-top-as-kitchen-island-on-blur-kitchen-background-can-be-used-for-display-or-montage-your--Stock-Photo.jpg') no-repeat center fixed;
+    position: relative;
+    background-size: cover;
+}
+
+.item {
+    width: 100%;
+    height: 100%;
+
+}
+.btn-submit {
+    margin-top: 200px;
+    padding: 30px;
+    font-size: 30px;
+
+}
+>>>>>>> 8ce437f2b1323c90783b21d77496d0d94dac8c51
