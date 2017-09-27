@@ -1,9 +1,12 @@
 var mongoose = require('mongoose');
 
 var sandwichSchema = new mongoose.Schema ({
-    ingredients : [String],
+    breads: [String],
+    meats: [String],
+    cheeses: [String],
+    veggies: [String],
     sauces : [String]
-})
+});
 
 
 var Sandwich = mongoose.model("sandwich",sandwichSchema)

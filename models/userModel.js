@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var sandwichSchema = require('mongoose').model('Sandwich').schema
+var sandwichSchema = require('./sandwichModel.js').schema;
 
 
 var userSchema = new mongoose.Schema ({
