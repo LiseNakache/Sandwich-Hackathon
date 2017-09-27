@@ -1,4 +1,5 @@
 // $('.carousel').carousel()
+console.log("hello");
 
 
 
@@ -7,7 +8,7 @@
 function addPost(input_text) {
     $.ajax({
         type: "POST",
-        url: "/postsUrl",
+        url: "/",
         data: { text: input_text },
         success: function(newPost) {
             if (newPost) {
