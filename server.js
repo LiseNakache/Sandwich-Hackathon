@@ -30,13 +30,69 @@ mongoose.connect('mongodb://localhost/SandwichDB', function() {
 // console.log(user1);
 
 
-
-
   app.use(express.static('public'));
   app.use(express.static('node_modules'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
-  app.use(morgan('dev'))
+  app.use(morgan('dev'));
+
+app.get("/", function(req, res){
+  res.sendFile(__dirname + "/index.html")
+})
+
+//Login-Create Account
+app.post("/", function(req, res){
+  var user = new User(req.body);
+  user.save(function(err, user){
+    if(err){
+      console.log(err);
+    } else {
+      console.log(user);
+      res.send(user);
+    }
+  });
+});
+
+//GET Sandwhich page
+app.get("/:id/ingredients", function(req, res){
+  User.findById(req.params.id, function(err, user){
+    if(err){
+      console.log(err)
+    } else {
+      res.send(user);
+    }
+  });
+});
+
+//PUT choose sanwhich options, changing to user
+app.put("/:id/ingredients", function(req, res){
+  User.findById(req.user._id).then(function(user){
+    var sandwich = new Sandwich(req.body);
+    user.sandwich.push(sandwich);
+    user.save(function(err, sandwich){
+      if(err){
+        console.log(err)
+      } else {
+        res.send(user);
+      }
+    })
+  })
+})
+
+//GET ready made sanwhiches
+app.get("/:id/readymade", function(req, res){
+  User.findById(req.params.id, function(err, user){
+    if(err){
+      console.log(err);
+    } else {
+      res.send(user)
+    }
+  })
+})
+
+app.put("/:id/readymade", function(req,res){
+  User.findById(req.user._id)
+})
 
 app.listen(port);
 console.log("=================");
