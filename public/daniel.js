@@ -1,35 +1,31 @@
-// $('.carousel').carousel()
-console.log("hello");
+var users = [];
 
 
-
-
-
-function addPost(input_text) {
+function store_the_name(username) {
     $.ajax({
-        type: "POST",
+        method: "POST",
         url: "/",
-        data: { text: input_text },
-        success: function(newPost) {
-            if (newPost) {
-                console.log("this is your post " + newPost);
-                //save this post inside the posts array
-                //render the posts array on the screen
-                // posts.push({ text: newPost, comments: [] });
-                // _renderPosts();
-                posts.push(newPost);
-                _renderPosts();
+        data: { username: username },
+        dataType: "json",
+        success: function(result) {
+            console.log(result);
+            users.push(result);
+            console.log(users)
+        },
+        err: function() {
 
-            } else {
-                console.log("there was an error !");
-            }
+            console.log(err)
         }
     });
 }
 
 $('#submit').on('click', function() {
+    var inputUsername = $(this).siblings("#the_user_name")
+    var the_user_name = inputUsername.val();
     getusername(this)
+    store_the_name(the_user_name)
 })
+
 
 var getusername = function(the_button) {
 
@@ -38,6 +34,7 @@ var getusername = function(the_button) {
         alert("Please tell us your name so we can move on and feed you!");
     } else {
         var the_user_name = inputUsername.val();
+        store_the_name(the_user_name);
 
         // addPost($input.val());
         // $input.val("");
