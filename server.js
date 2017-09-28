@@ -5,40 +5,112 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var Sandwich = require('./models/sandwichModel');
 var User = require('./models/userModel');
+var MadeSandwich = require('./models/madeSandwichModel');
 var port = process.env.PORT || 3000;
 
-mongoose.connect('mongodb://localhost/SandwichDB', function() {
+
+app.use(express.static('public'));
+app.use(express.static('node_modules'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(morgan('dev'))
+
+mongoose.connect('mongodb://localhost/SandwichDB', function () {
     console.log("DB connection established!!!");
-  })
-
-//=====================================
-//SEED DB, REMOVE AFTER DEPLOY
-//====================================
-
-// var user1 = new User({
-//   username: "RoxyNFoxy001"
-// });
-
-// user1.sandwich.push({breads:["White Bread"],meats:["Turkey", "Salami"],cheeses:["Provolone"], veggies:["Tomatoes", "Lettuce", "Black Olives"], sauces:["French"]});
-// user1.save(function(err, data){
-//   if(err){
-//     console.log(err);
-//   } else {
-//     console.log(data);
-//   }
-// })
-// console.log(user1);
+})
 
 
 
+app.get('/', function (request, response) {
+    response.sendFile(__dirname + './create.html');
+});
 
-  app.use(express.static('public'));
-  app.use(express.static('node_modules'));
-  app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({ extended: false }));
-  app.use(morgan('dev'))
+
+//Login-Create Account
+app.post('/homepage', function (req, res) {
+    var user = new User(req.body);
+    user.save(function (err, username) {
+        if (err) { res.send(err) }
+        res.send(username);
+        console.log('the username was saved')
+    })
+});
+
+
+app.post('/homepage/:id/ingredients', function (req, res) {
+    console.log(req.params.id)
+    var sandwich = new Sandwich(req.body)
+
+    User.findById(req.params.id, function (err, username) {
+        console.log(username)
+        username.sandwich.push(sandwich)
+        if (err) { res.send(err) };
+        res.send(username);
+        console.log("the ingredient was added to the user")
+    });
+})
+
+
+//READY MADE
+app.post('/homepage/:id/madeSandwich', function (req, res) {
+    console.log(req.params.id)
+    var madeSandwich = new MadeSandwich(req.body)
+
+    User.findById(req.params.id, function (err, username) {
+        console.log(username)
+        username.madeSandwich.push(madeSandwich);
+        if (err) { res.send(err) }
+        res.send(username);
+        console.log("the sandwich was added to the post")
+    })
+})
+
+//GET Sandwhich page
+app.get("/:id/ingredients", function (req, res) {
+    User.findById(req.params.id, function (err, user) {
+        if (err) {
+            console.log(err)
+        } else {
+            res.send(user);
+        }
+    });
+});
+
+//PUT choose sanwhich options, changing to user
+app.put("/:id/ingredients", function (req, res) {
+    User.findById(req.user._id).then(function (user) {
+        var sandwich = new Sandwich(req.body);
+        user.sandwich.push(sandwich);
+        user.save(function (err, sandwich) {
+            if (err) {
+                console.log(err)
+            } else {
+                res.send(user);
+            }
+        })
+    })
+})
+
+
+
+
+
+//GET ready made sanwhiches
+app.get("/:id/readymade", function (req, res) {
+    User.findById(req.params.id, function (err, user) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(user)
+        }
+    })
+})
+
+app.put("/:id/readymade", function (req, res) {
+    User.findById(req.user._id)
+})
 
 app.listen(port);
 console.log("=================");
 console.log("I am a working on Sandwhich " + port);
-console.log("=================");
+console.log("=================")
