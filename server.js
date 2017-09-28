@@ -47,12 +47,13 @@ app.get("/:id/ingredients", function(req, res) {
             console.log(err)
         } else {
             res.send(user);
+            res.sendFile(__dirname + '/create.html');
         }
     });
 });
 
 //PUT choose sanwhich options, changing to user
-app.put("/:id/ingredients", function(req, res) {
+app.post("/:id/ingredients", function(req, res) {
     User.findById(req.user._id).then(function(user) {
         var sandwich = new Sandwich(req.body);
         user.sandwich.push(sandwich);
@@ -95,6 +96,17 @@ app.get("/:id/readymade", function(req, res) {
 app.put("/:id/readymade", function(req, res) {
     User.findById(req.user._id)
 })
+
+app.get("/:id/checkout", function(req, res){
+    User.findById(req.params.id, function(err, user){
+        if(err){
+            console.log(err)
+        } else {
+            console.log(user);
+            res.send(user)
+        }
+    })
+});
 
     app.listen(port);
     console.log("=================");
