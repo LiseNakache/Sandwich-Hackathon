@@ -1,17 +1,14 @@
 var users = [];
-
-//click handlers
-
+//HOMEPAGE
 function store_the_name(username) {
     $.ajax({
-        method: "POST",
-        url: "/",
-        data: { username: username },
+        method: 'POST',
+        url: '/',
+        data: { username: username},
         dataType: "json",
-        success: function(result) {
+        success: function (result) {
             console.log(result);
-            users.push({username: username, result:result._id, sandwich: []});
-            // console.log(users)
+            users.push({ username: username, result: result._id, sandwich: [] });
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log('err')
@@ -19,96 +16,118 @@ function store_the_name(username) {
         }
     });
 }
-
-function getIngrPage(id){
-    $.ajax({
-        method: 'GET',
-        url: "/" + id +'/ingredients',
-        success: function(data){
-            console.log(data);
-            users = data;
-            // renderIngreients();
-          },
-          error: function(xhr, status, error){
-            console.log(status, err.toString())
-          }
-    })
+var getusername = function (the_button) {
+    var inputUsername = $(the_button).siblings("#the_user_name")
+    if (inputUsername.val() === "") {
+        alert("Please tell us your name so we can move on and feed you!");
+    } else {
+        var inputUsername = $(the_button).siblings("#the_user_name");
+        var the_user_name = inputUsername.val();
+        store_the_name(the_user_name);
+        console.log('zoyfhtr,frt')
+        inputUsername.val("");
+    }
 }
-// getIngrPage();
-
-function addIngr(index, ingredientsBread) { 
+//INGREDIENTS PAGE
+var addIngr = function (ingredientBread, ingredientMeat, ingredientCheese, ingredientVeg, ingredientSauce) {
+    var id = users[users.length - 1].result;
+    console.log(id)
     $.ajax({
         method: 'POST',
-        url: "/" + users[index]._id +'/ingredients',
-        data: { breads: ingredientsBread },
+        url: '/homepage/' + id + '/ingredients',
+        data: {
+            breads: ingredientBread,
+            meats: ingredientMeat,
+            cheeses: ingredientCheese,
+            veggies: ingredientVeg,
+            sauces: ingredientSauce
+        },
         dataType: 'json',
-        success: function (data) {
-            console.log(data);
-            users.sandwich.push({bread: ingredientsBread});
+        success: function (username) {
+            console.log(username)
+            users[users.length - 1] = username;
+            
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(textStatus);
         }
     })
 };
-
-// function getCheckout(){
-//     var source = $("#checkout-template").html();
-//     var template = Handlebars.compile(source);
-//     for(var i = 0; i < users._id)
-// }
-
-
-var getusername = function(the_button) {
-    var inputUsername = $(the_button).siblings("#the_user_name")
-    if (inputUsername.val() === "") {
-        alert("Please tell us your name so we can move on and feed you!");
-    } else {
-        var the_user_name = inputUsername.val();
-        store_the_name(the_user_name);
-        // addPost($input.val());
-        // $input.val("");
-    }
-
-
+//READY MADE SANDWICH PAGE
+function addMadeSandwichToDB(sandwichName) {
+    var id = users[users.length - 1].result;
+    $.ajax({
+        method: 'POST',
+        url: '/homepage/' + id + '/madeSandwich',
+        data: { name: sandwichName },
+        dataType: "json",
+        success: function (madesandwich) {
+            console.log(madesandwich);
+            // users[0].madeSandwich.push(madesandwich)
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log('err')
+            console.log(textStatus)
+        }
+    })
 }
+//SUM UP PAGE
+// function addMadeSandwichToDB(sandwichName) {
+//     $.ajax({
+//         method: 'GET',
+//         url: '/madeSandwich',
+//         dataType: "json",
+//         success: function (sumUp) {
+//             users = sumUp
+//         },
+//         error: function (jqXHR, textStatus, errorThrown) {
+//             console.log('err')
+//             console.log(textStatus)
+//         }
+//     })
+// }
 //click handlers
-$('#submit').on('click', function() {
-    var inputUsername = $(this).siblings("#the_user_name")
-    var the_user_name = inputUsername.val();
+$('#submit').on('click', function () {
+    alert('hey')
+    // var index = inputUsername.index();
     getusername(this)
-
 })
-
-// $(".ingredient").on("click", function(){
-//     alert("I was clicked");
-//     var ingredients = $(this)
-// })
-
-$('.food-type').on('click', '.btn-dropdown', function () {
-    alert('hey');
-    var sandIngred = $(this).closest('.ingredient').data('value');
-    console.log(sandIngred);
-    // var textIngredientChange = $(this).parents('.dropdown').find('.btn').html($(this).text());
-    // var inputIngredientChange = $(this).parents('.dropdown').find('.btn').val($(this).data('value'))
-    // var ingredientsBread = $(this).closest('.data'value');
-    //AJOUTER ICI LES AUTRES VAL DES INGREDIENTS
-    // addIngr(ingredientsBread);
+$('.food-type').on('click', '.btn-dropdown', function (e) {
+    alert('OO')
+    var ingredientBread = $(this).closest('.bread').data('value')
+    var ingredientMeat = $(this).closest('.meat').data('value')
+    var ingredientCheese = $(this).closest('.cheese').data('value');
+    var ingredientVeg = $(this).closest('.veg').data('value');
+    var ingredientSauce = $(this).closest('.sauce').data('value');
+    e.preventDefault();
+    addIngr(ingredientBread, ingredientMeat, ingredientCheese, ingredientVeg, ingredientSauce);
 });
-
-$(".submit-order").on("click", function(){
-    alert("I was clicked to submit order")
+$('.pick-btn').click(function () {
+    var sandwichName = $(this).closest('.title').data('value')
+    addMadeSandwichToDB(sandwichName);
 })
-
-
-
-
-
+$('.submit-order').on('click', '.btn-submit', function () {
+    alert('submit')
+})
 //extras click handlers
 $('.carousel').carousel({
     interval: 2000
 })
-
-$('.carousel-indicators').on('click', function() {
+$('.carousel-indicators').on('click', function () {
     (this).carousel('next');
 })
+// $(".btTxt").on('click', function () {
+//     alert("this button is working")
+// })
+
+$("a").on('click', function(event) {
+        if (this.hash !== "") {
+          event.preventDefault();
+          var hash = this.hash;
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 800, function(){
+            window.location.hash = hash;
+          })
+        }
+    })

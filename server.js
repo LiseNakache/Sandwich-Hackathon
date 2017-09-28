@@ -41,7 +41,7 @@ app.post("/", function(req, res) {
 });
 
 //GET Sandwhich page
-app.get("/:id/ingredients", function(req, res) {
+app.get("/homepage/:id/ingredients", function(req, res) {
     User.findById(req.params.id, function(err, user) {
         if (err) {
             console.log(err)
@@ -53,15 +53,15 @@ app.get("/:id/ingredients", function(req, res) {
 });
 
 //PUT choose sanwhich options, changing to user
-app.post("/:id/ingredients", function(req, res) {
-    User.findById(req.user._id).then(function(user) {
+app.post("/homepage/:id/ingredients", function(req, res) {
+    User.findById(req.user.id).then(function(username) {
         var sandwich = new Sandwich(req.body);
-        user.sandwich.push(sandwich);
-        user.save(function(err, sandwich) {
+        username.sandwich.push(sandwich);
+        username.save(function(err, sandwich) {
             if (err) {
                 console.log(err)
             } else {
-                res.send(user);
+                res.send(sandwich);
             }
         })
     })
