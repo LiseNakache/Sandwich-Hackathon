@@ -15,58 +15,59 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('dev'))
 
-mongoose.connect('mongodb://localhost/SandwichDB', function() {
+mongoose.connect('mongodb://localhost/SandwichDB', function () {
     console.log("DB connection established!!!");
 })
 
 
 
 app.get('/', function (request, response) {
-  response.sendFile(__dirname + './create.html');
+    response.sendFile(__dirname + './create.html');
 });
 
 
 //Login-Create Account
-app.post("/", function(req, res) {
+app.post('/homepage', function (req, res) {
     var user = new User(req.body);
-    user.save(function(err, username) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log(user);
-            res.send(username);
-        }
-    });
+    user.save(function (err, username) {
+        if (err) { res.send(err) }
+        res.send(username);
+        console.log('the username was saved')
+    })
 });
 
 
-app.post('/:id/ingredients', function(req, res) {
-    User.findById(req.params.id),function(err,thisUser) {
+app.post('/homepage/:id/ingredients', function (req, res) {
+    console.log(req.params.id)
+    var sandwich = new Sandwich(req.body)
+
+    User.findById(req.params.id, function (err, username) {
+        console.log(username)
+        username.sandwich.push(sandwich)
         if (err) { res.send(err) };
-        thisUser.sandwich.push(req.body);
-        thisUser.save(function (err,ingredientsAdded) {
-            if (err) {res.send(err)}
-             res.send(thisUser);
-            console.log("the ingredient was added to the user : " + thisUser)
-          });
-    }
+        res.send(username);
+        console.log("the ingredient was added to the user")
+    });
 })
 
-// app.post('/post/:postId/comments', function (req, res) {
-//     Post.findById(req.params.postId, function (err, thisPost) {
-//       if (err) { res.send(err) };
-//       thisPost.comments.push(req.body);
-//       thisPost.save(function (err,commentAdded) {
-//         if (err) {res.send(err)}
-//          res.send(thisPost);
-//         console.log("the comment was added to the post : " + thisPost)
-//       });
-//     })
-//   });
+
+//READY MADE
+app.post('/homepage/:id/madeSandwich', function (req, res) {
+    console.log(req.params.id)
+    var madeSandwich = new MadeSandwich(req.body)
+
+    User.findById(req.params.id, function (err, username) {
+        console.log(username)
+        username.madeSandwich.push(madeSandwich);
+        if (err) { res.send(err) }
+        res.send(username);
+        console.log("the sandwich was added to the post")
+    })
+})
 
 //GET Sandwhich page
-app.get("/:id/ingredients", function(req, res) {
-    User.findById(req.params.id, function(err, user) {
+app.get("/:id/ingredients", function (req, res) {
+    User.findById(req.params.id, function (err, user) {
         if (err) {
             console.log(err)
         } else {
@@ -76,11 +77,11 @@ app.get("/:id/ingredients", function(req, res) {
 });
 
 //PUT choose sanwhich options, changing to user
-app.put("/:id/ingredients", function(req, res) {
-    User.findById(req.user._id).then(function(user) {
+app.put("/:id/ingredients", function (req, res) {
+    User.findById(req.user._id).then(function (user) {
         var sandwich = new Sandwich(req.body);
         user.sandwich.push(sandwich);
-        user.save(function(err, sandwich) {
+        user.save(function (err, sandwich) {
             if (err) {
                 console.log(err)
             } else {
@@ -91,23 +92,12 @@ app.put("/:id/ingredients", function(req, res) {
 })
 
 
-app.post(':id/madeSandwich', function (req, res) {
-  User.findById(req.params.id, function (err, thisUser) {
-    if (err) { res.send(err) };
-    thisUser.madeSandwich.push(req.body);
-    thisUser.save(function (err, sandwichAdded) {
-      if (err) { res.send(err) }
-      res.send(thisUser);
-      console.log("the sandwich was added to the post : " + thisUser)
-      })
-    })
-  })
 
 
 
 //GET ready made sanwhiches
-app.get("/:id/readymade", function(req, res) {
-    User.findById(req.params.id, function(err, user) {
+app.get("/:id/readymade", function (req, res) {
+    User.findById(req.params.id, function (err, user) {
         if (err) {
             console.log(err);
         } else {
@@ -116,11 +106,11 @@ app.get("/:id/readymade", function(req, res) {
     })
 })
 
-app.put("/:id/readymade", function(req, res) {
+app.put("/:id/readymade", function (req, res) {
     User.findById(req.user._id)
 })
 
-    app.listen(port);
-    console.log("=================");
-    console.log("I am a working on Sandwhich " + port);
-    console.log("=================")
+app.listen(port);
+console.log("=================");
+console.log("I am a working on Sandwhich " + port);
+console.log("=================")

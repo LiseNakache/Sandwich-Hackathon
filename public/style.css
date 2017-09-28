@@ -7,11 +7,14 @@
     height: 300px;
     display: block;
     float: left;
-    border : 1px solid red;
+    /* border : 1px solid red; */
     width : 33.33%;
     padding : 2px;
 }
 
+hr {
+border : 2px solid black;
+}
 .sandwich-img {
     opacity: 1;
     width: 100%;
@@ -69,10 +72,15 @@
     margin: 5px;
   }
   
-
+.background {
+    background: url('https://ak3.picdn.net/shutterstock/videos/12697823/thumb/1.jpg') no-repeat center fixed;
+    position: relative;
+    background-size: cover;
+    
+}
 /* HOMEPAGE */
 .about {
-    border: 3px solid red;
+    /* border: 3px solid red; */
     font: normal 29px/1 "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     color: rgba(255, 255, 255, 1);
     text-align: center;
@@ -110,7 +118,7 @@
 }
 
 body {
-    background: url('https://previews.123rf.com/images/kritchanut/kritchanut1507/kritchanut150700541/43016898-Wood--table-top-as-kitchen-island-on-blur-kitchen-background-can-be-used-for-display-or-montage-your--Stock-Photo.jpg') no-repeat center fixed;
+    background: url('sand_pic.jpg') no-repeat center fixed;
     position: relative;
     background-size: cover;
 }
@@ -118,13 +126,24 @@ body {
 .pictures {
     width: 100%;
     height: 100%;
-
 }
-.btn-submit {
-    margin-top: 200px;
-    padding: 30px;
-    font-size: 30px;
 
+.form-control.input.placeholder {
+    text-align: center;
+}
+
+.about {
+    background-color: white;
+    opacity: 0.6;
+}
+
+.about_text {
+    color: black;
+    font-family: 'Roboto', sans-serif;
+}
+
+.btTxt {
+    height: 40%
 }
 
 
@@ -155,4 +174,8 @@ body {
 
 .sauce-sand{
     border : 3px solid orange
+} */
+
+/* .ingredient-page{
+    background-color: rgba(255, 196, 0, 0.84);
 } */

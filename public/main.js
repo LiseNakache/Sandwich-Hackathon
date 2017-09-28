@@ -1,19 +1,15 @@
 var users = [];
 
-//click handlers
-
-
 //HOMEPAGE
 function store_the_name(username) {
     $.ajax({
-        method: "POST",
-        url: "/",
-        data: { username: username },
+        method: 'POST',
+        url: '/homepage',
+        data: { username: username},
         dataType: "json",
         success: function (result) {
             console.log(result);
-            users.push(result);
-            console.log(users)
+            users.push({ username: username, result: result._id, sandwich: [] });
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log('err')
@@ -30,21 +26,30 @@ var getusername = function (the_button) {
         var inputUsername = $(the_button).siblings("#the_user_name");
         var the_user_name = inputUsername.val();
         store_the_name(the_user_name);
+        console.log('zoyfhtr,frt')
         inputUsername.val("");
     }
 }
 
 //INGREDIENTS PAGE
-function addIngr(ingredientsBread,index) { //AJOUTER ICI LES AUTRES INGREDIENTS
-    var id = users[users.length -1]._id;
+var addIngr = function (ingredientBread, ingredientMeat, ingredientCheese, ingredientVeg, ingredientSauce) {
+    var id = users[users.length - 1].result;
+    console.log(id)
     $.ajax({
         method: 'POST',
-        url: '/' + id +'/ingredients',
-        data: { breads: ingredientsBread },//AJOUTER ICI LES AUTRES INGREDIENTS ,
+        url: '/homepage/' + id + '/ingredients',
+        data: {
+            breads: ingredientBread,
+            meats: ingredientMeat,
+            cheeses: ingredientCheese,
+            veggies: ingredientVeg,
+            sauces: ingredientSauce
+        },
         dataType: 'json',
-        success: function (ingredientsAdded) {
-            alert(ingredientsAdded);
-            users[index] = thisPost
+        success: function (username) {
+            console.log(username)
+            users[users.length - 1] = username;
+            
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(textStatus);
@@ -54,14 +59,15 @@ function addIngr(ingredientsBread,index) { //AJOUTER ICI LES AUTRES INGREDIENTS
 
 //READY MADE SANDWICH PAGE
 function addMadeSandwichToDB(sandwichName) {
+    var id = users[users.length - 1].result;
     $.ajax({
         method: 'POST',
-        url: '/madeSandwich',
+        url: '/homepage/' + id + '/madeSandwich',
         data: { name: sandwichName },
         dataType: "json",
         success: function (madesandwich) {
             console.log(madesandwich);
-            users.madeSandwich.push(sandwichName)
+            // users[0].madeSandwich.push(madesandwich)
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log('err')
@@ -71,20 +77,20 @@ function addMadeSandwichToDB(sandwichName) {
 }
 
 //SUM UP PAGE
-function addMadeSandwichToDB(sandwichName) {
-    $.ajax({
-        method: 'GET',
-        url: '/madeSandwich',
-        dataType: "json",
-        success: function (sumUp) {
-            users = sumUp
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.log('err')
-            console.log(textStatus)
-        }
-    })
-}
+// function addMadeSandwichToDB(sandwichName) {
+//     $.ajax({
+//         method: 'GET',
+//         url: '/madeSandwich',
+//         dataType: "json",
+//         success: function (sumUp) {
+//             users = sumUp
+//         },
+//         error: function (jqXHR, textStatus, errorThrown) {
+//             console.log('err')
+//             console.log(textStatus)
+//         }
+//     })
+// }
 
 
 
@@ -94,17 +100,20 @@ function addMadeSandwichToDB(sandwichName) {
 
 
 $('#submit').on('click', function () {
+    alert('hey')
     // var index = inputUsername.index();
     getusername(this)
 })
 
-$('.bread-sand').on('click', '.btn-dropdown', function () {
-    alert('hey')
-    // var textIngredientChange = $(this).parents('.dropdown').find('.btn').html($(this).text());
-    // var inputIngredientChange = $(this).parents('.dropdown').find('.btn').val($(this).data('value'))
-    var ingredientsBread = $(this).closest('.data('value');
-    //AJOUTER ICI LES AUTRES VAL DES INGREDIENTS
-    addIngr(ingredientsBread);
+$('.food-type').on('click', '.btn-dropdown', function (e) {
+    alert('OO')
+    var ingredientBread = $(this).closest('.bread').data('value')
+    var ingredientMeat = $(this).closest('.meat').data('value')
+    var ingredientCheese = $(this).closest('.cheese').data('value');
+    var ingredientVeg = $(this).closest('.veg').data('value');
+    var ingredientSauce = $(this).closest('.sauce').data('value');
+    e.preventDefault();
+    addIngr(ingredientBread, ingredientMeat, ingredientCheese, ingredientVeg, ingredientSauce);
 });
 
 $('.pick-btn').click(function () {
@@ -112,7 +121,9 @@ $('.pick-btn').click(function () {
     addMadeSandwichToDB(sandwichName);
 })
 
-
+$('.submit-order').on('click', '.btn-submit', function () {
+    alert('submit')
+})
 
 
 
@@ -124,4 +135,9 @@ $('.carousel').carousel({
 
 $('.carousel-indicators').on('click', function () {
     (this).carousel('next');
+})
+
+$(".btTxt").on('click', function () {
+
+    alert("this button is working")
 })
