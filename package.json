@@ -22,6 +22,10 @@
     "bourbon": "^4.3.4",
     "express": "^4.15.5",
     "font-awesome": "^4.7.0",
+<<<<<<< HEAD
+    "fontawesome": "^4.7.2",
+=======
+>>>>>>> 8ce437f2b1323c90783b21d77496d0d94dac8c51
     "handlebars": "^4.0.10",
     "jquery": "^3.2.1",
     "mongoose": "^4.11.13",

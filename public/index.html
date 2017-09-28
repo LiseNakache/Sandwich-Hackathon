@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="./font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="./bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="./style.css">
+    <title>Sandwich DIY</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
-    <title>Document</title>
+
 </head>
 
 <body>
@@ -65,11 +66,11 @@
         <div class="row">
 
             <!-- this is the form itself -->
-            <form class="formbox col-md-6 col-md-offset-3 ">
+            <form class="formbox col-md-6 col-md-offset-3 " action="/create.html" method="get">
                 <div class="form-group">
                     <label form="username">What's your name?</label>
                     <input type="text" class="form-control" placeholder="Username" id="the_user_name">
-                    <button type="submit" class="btn btn-primary" id="submit">Let's start</button>
+                   <button type="button" class="btn btn-primary" id="submit" onclick="$('#options').toggle()">Let's start</button>
                 </div>
 
             </form>
@@ -78,139 +79,129 @@
         <!-- this is the end of the container -->
     </div>
 
-    <script src="./jquery/dist/jquery.js"></script>
-    <script src="./bootstrap/dist/js/bootstrap.js"></script>
-    <script src="./daniel.js"></script>
+<!--Amitays section-->
 
-    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../node_modules/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title> Sandwitch Hachaton </title>
-</head>
-
-<body>
-    <section class="background">
-        <div class="container">
-            <div class="row">
-                <div class="whatever col-md-6">
-                    <div class="hi"><button type="button" class="miy-sand"> Make your own Sandwitch</button></div>
-                </div>
-                <div class="whatever col-md-6">
-                    <div class="hi"><button type="button" class="build-in-sand">Continue for our build-in Sandwitches</button></div>
+<section id='options' style='display:none'>
+    <div class='container-options'>
+        <div class="bread-sand food-type col-md-4">
+            <div class="bs-example">
+                <div class="dropdown">
+                    <button type="button" class="btn btn-danger dropdown-toggle btn-lg btn-block" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Types of BREAD
+                      </button>
+                    <ul class="dropdown-menu">
+                        <li class="ingredient" data-value="white"><a href="#">White Bread<button type="button" class="btn btn-dropdown col-md-offset-4 ingredient"> ADD </button></a></li>
+                        <li class="bread "><a href="#" data-value="plain">Plain Bread<button type="button" class="btn btn-dropdown col-md-offset-4 ingredient"> ADD </button></a></li>
+                        <li class="bread"><a href="#" data-value="sesame">Sesame Bread<button type="button" class="btn btn-dropdown col-md-offset-4 ingredient"> ADD </button></a></li>
+                        <li class="bread"><a href="#" data-value="gluten-free">Gluten Free Bread<button type="button" class="btn btn-dropdown col-md-offset-4 ingredient"> ADD </button></a></li>
+                    </ul>
                 </div>
             </div>
-
-
-            <section class="food-select">
-                <div class="bread-sand food-type">
-                    <div class="bs-example">
-                        <div class="dropdown">
-                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Types of BREAD
-                              </button>
-                            <ul class="dropdown-menu">
-                                <li class="white"><a href="#" data-value="white">White ADD</a></li>
-                                <li class="light"><a href="#">Light<button class="btn-light btn-dropdown"> ADD </button></a></li>
-                                <li class="sesame"><a href="#">Sesame<button class="btn-sesame btn-dropdown"> ADD </button></a></li>
-                                <li class="gluten-free"><a href="#">Gluten Free<button class="btn-gluten btn-dropdown"> ADD </button></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="meat-sand food-type">
-                    <div class="bs-example">
-                        <div class="dropdown">
-                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Types of Meat
-                                      </button>
-                            <ul class="dropdown-menu">
-                                <li class="white"><a href="#">White<button class="btn-white btn-dropdown"> ADD </button></a></li>
-                                <li class="light"><a href="#">Light<button class="btn-light btn-dropdown"> ADD </button></a></li>
-                                <li class="sesame"><a href="#">Sesame<button class="btn-sesame btn-dropdown"> ADD </button></a></li>
-                                <li class="gluten-free"><a href="#">Gluten Free<button class="btn-gluten btn-dropdown"> ADD </button></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="cheese-sand food-type">
-                    <div class="bs-example">
-                        <div class="dropdown">
-                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Types of Cheese
-                                          </button>
-                            <ul class="dropdown-menu">
-                                <li class="white"><a href="#">White<button class="btn-white btn-dropdown"> ADD </button></a></li>
-                                <li class="light"><a href="#">Light<button class="btn-light btn-dropdown"> ADD </button></a></li>
-                                <li class="sesame"><a href="#">Sesame<button class="btn-sesame btn-dropdown"> ADD </button></a></li>
-                                <li class="gluten-free"><a href="#">Gluten Free<button class="btn-gluten btn-dropdown"> ADD </button></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="vegetables-sand food-type">
-                    <div class="bs-example">
-                        <div class="dropdown">
-                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Types of Veg
-                                            </button>
-                            <ul class="dropdown-menu">
-                                <li class="white"><a href="#">White<button class="btn-white btn-dropdown"> ADD </button></a></li>
-                                <li class="light"><a href="#">Light<button class="btn-light btn-dropdown"> ADD </button></a></li>
-                                <li class="sesame"><a href="#">Sesame<button class="btn-sesame btn-dropdown"> ADD </button></a></li>
-                                <li class="gluten-free"><a href="#">Gluten Free<button class="btn-gluten btn-dropdown"> ADD </button></a></li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="extras-sand food-type">
-                    <div class="bs-example">
-                        <div class="dropdown">
-                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    Types of Extras
-                                                  </button>
-                            <ul class="dropdown-menu">
-                                <li class="white"><a href="#">White<button class="btn-white btn-dropdown"> ADD </button></a></li>
-                                <li class="light"><a href="#">Light<button class="btn-light btn-dropdown"> ADD </button></a></li>
-                                <li class="sesame"><a href="#">Sesame<button class="btn-sesame btn-dropdown"> ADD </button></a></li>
-                                <li class="gluten-free"><a href="#">Gluten Free<button class="btn-gluten btn-dropdown"> ADD </button></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="sauce-sand food-type">
-                    <div class="bs-example">
-                        <div class="dropdown">
-                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        Types of Sauces
-                                                      </button>
-                            <ul class="dropdown-menu">
-                                <li class="white"><a href="#">White<button class="btn-white btn-dropdown"> ADD </button></a></li>
-                                <li class="light"><a href="#">Light<button class="btn-light btn-dropdown"> ADD </button></a></li>
-                                <li class="sesame"><a href="#">Sesame<button class="btn-sesame btn-dropdown"> ADD </button></a></li>
-                                <li class="gluten-free"><a href="#">Gluten Free<button class="btn-gluten btn-dropdown"> ADD </button></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-                <button type="button" class="btn btn-success btn-submit btn-lg col-xs-offset-4"> Submit your buy-in</button>
-                
-
         </div>
-        </section>
+
+
+        <!-- <div class="row"> -->
+        <div class="meat-sand food-type col-md-4">
+            <div class="bs-example">
+                <div class="dropdown">
+                    <button type="button" class="btn btn-danger dropdown-toggle btn-lg btn-block" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                                Types of Meat
+                              </button>
+                    <ul class="dropdown-menu ">
+                        <li class="chicken ingredient"><a href="#" data-value="chicken">Chicken<button class="btn btn-dropdown col-md-offset-4 ingredient"> ADD </button></a></li>
+                        <li class="beef ingredient"><a href="#" data-value="beef">Beef<button class="btn btn-dropdown col-md-offset-4 ingredient"> ADD </button></a></li>
+                        <li class="veal ingredient"><a href="#" data-value="veal">Veal<button class="btn btn-dropdown col-md-offset-4 ingredient"> ADD </button></a></li>
+                        <li class="salami ingredient"><a href="#" data-value="salami">salami<button class="btn btn-dropdown col-md-offset-4 ingredient"> ADD </button></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+
+        <!-- <div class="row"> -->
+        <div class="cheese-sand food-type col-md-4">
+            <div class="bs-example">
+                <div class="dropdown">
+                    <button type="button" class="btn btn-danger dropdown-toggle btn-lg btn-block" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                                    Types of Cheese
+                                  </button>
+                    <ul class="dropdown-menu ">
+                        <li class="goat cheese"><a href="#" data-value="goat cheese">Goat Cheese<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                        <li class="yellow cheese"><a href="#" data-value="yellow cheese">Yellow Cheese<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                        <li class="camembert"><a href="#" data-value="camembert">Camembert<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                        <li class="cream cheese"><a href="#" data-value="cream cheese">Cream Cheese<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+
+    <br>
 
     
-    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    <script type="text/javascript" src="../node_modules/handlebars/dist/handlebars.js"></script>
-    <script type="text/javascript" src="main.js"></script>
+    <div class="row">
+        <div class="vegetables-sand food-type col-md-6">
+            <div class="bs-example">
+                <div class="dropdown">
+                    <button type="button" class="btn btn-danger dropdown-toggle btn-lg btn-block" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                                        Types of Vegetables
+                                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="tomatoes"><a href="#" data-value="tomatoes">Tomatoes<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                        <li class="cucumber"><a href="#" data-value="cucumber">Cucumber<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                        <li class="salad"><a href="#" data-value="salad">Salad<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                        <li class="olives"><a href="#" data-value="olives">Olives<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+
+        <!-- <div class="row"> -->
+        <div class="sauce-sand food-type col-md-6">
+            <div class="bs-example">
+                <div class="dropdown">
+                    <button type="button" class="btn btn-danger dropdown-toggle btn-lg btn-block" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                                                Types of Sauces
+                                              </button>
+                    <ul class="dropdown-menu ">
+                        <li class="white sauce"><a href="#" data-value="white sauce">White Sauce<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                        <li class="mayo"><a href="#" data-value="mayo">Mayo<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                        <li class="ketchup"><a href="#" data-value="ketchup">Ketchup<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                        <li class="spicy sauce"><a href="#" data-value="spicy sauce">Spicy Sauce<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-submit btn-lg col-md-6 col-md-offset-3">Submit your order</button>
+    </div>
 
 
 
-</body>
 
-</html>
+
+    </div>
+
+    <!--Anna Section, Checkout Page -->
+    <section>
+        <script id="checkout-template" type="text/x-handlebars-template">
+            <li class="breads">breads: {{breads}}</li>
+            <li class="meats">meats: {{meats}}</li>
+            <li class="cheese">cheeses: {{cheeses}}</li>
+            <li class="veggies">veggies: {{veggies}}</li>
+            <li class="sauces">sauces: {{sauces}}</li>
+        </script>
+    </section>
+
+    <script src="jquery/dist/jquery.js"></script>
+    <script src="handlebars/dist/handlebars.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.js"></script>
+    <script src="main.js"></script>
+
+    
