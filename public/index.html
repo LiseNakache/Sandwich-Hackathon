@@ -73,7 +73,7 @@
                 <div class="form-group">
                     <label form="username">What's your name?</label>
                     <input type="text" class="form-control" placeholder="Username" id="the_user_name">
-                    <button type="button" class="btn btn-primary" id="submit" onclick="$('#options').toggle()">Let's start</button>
+                    <button type="button" class="btn-start btn-primary" id="submit" onclick="$('#options').toggle()">Let's start</button>
                 </div>
 
             </form>
@@ -81,10 +81,11 @@
         </div>
         <!-- this is the end of the container -->
     </div>
-    <!-- <div id="includedContent"></div> -->
+
+
     <!-- //////AMITAY/////// -->
 
-    <section id='options' style='display:none'>
+    <section class=" ingredient-page" id='options' style='display:none'>
         <div class='container-options'>
             <div class="bread-sand food-type col-md-4">
                 <div class="bs-example">
@@ -94,17 +95,15 @@
                             Types of BREAD
                           </button>
                         <ul class="dropdown-menu">
-                            <li class="bread"><a href="#" data-value="white">White Bread<button type="button" class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
-                            <li class="bread"><a href="#" data-value="plain">Plain Bread<button type="button" class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
-                            <li class="bread"><a href="#" data-value="sesame">Sesame Bread<button type="button" class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
-                            <li class="bread"><a href="#" data-value="gluten-free">Gluten Free Bread<button type="button" class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                            <li class="ingredients" data-value="white"><a href="#">White Bread<button type="button" class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                            <li class="ingredients" data-value="plain"><a href="#">Plain Bread<button type="button" class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                            <li class="ingredients" data-value="sesame"><a href="#">Sesame Bread<button type="button" class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                            <li class="ingredients" data-value="gluten-free"><a href="#">Gluten Free Bread<button type="button" class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-
-            <!-- <div class="row"> -->
             <div class="meat-sand food-type col-md-4">
                 <div class="bs-example">
                     <div class="dropdown">
@@ -113,17 +112,16 @@
                                     Types of Meat
                                   </button>
                         <ul class="dropdown-menu ">
-                            <li class="chicken"><a href="#" data-value="chicken">Chicken<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
-                            <li class="beef"><a href="#" data-value="beef">Beef<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
-                            <li class="veal"><a href="#" data-value="veal">Veal<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
-                            <li class="salami"><a href="#" data-value="salami">salami<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                            <li class="ingredients" data-value="chicken"><a href="#">Chicken<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                            <li class="ingredients" data-value="beef"><a href="#">Beef<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                            <li class="ingredients" data-value="veal"><a href="#">Veal<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                            <li class="ingredients" data-value="salami"><a href="#">salami<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <!-- </div> -->
 
-            <!-- <div class="row"> -->
+
             <div class="cheese-sand food-type col-md-4">
                 <div class="bs-example">
                     <div class="dropdown">
@@ -132,10 +130,10 @@
                                         Types of Cheese
                                       </button>
                         <ul class="dropdown-menu ">
-                            <li class="goat cheese"><a href="#" data-value="goat cheese">Goat Cheese<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
-                            <li class="yellow cheese"><a href="#" data-value="yellow cheese">Yellow Cheese<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
-                            <li class="camembert"><a href="#" data-value="camembert">Camembert<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
-                            <li class="cream cheese"><a href="#" data-value="cream cheese">Cream Cheese<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                            <li class="ingredients" data-value="goat cheese"><a href="#">Goat Cheese<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                            <li class="ingredients" data-value="yellow cheese"><a href="#">Yellow Cheese<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                            <li class="ingredients" data-value="camembert"><a href="#">Camembert<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                            <li class="ingredients" data-value="cream cheese"><a href="#">Cream Cheese<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
                         </ul>
                     </div>
                 </div>
@@ -145,7 +143,7 @@
 
         <br>
 
-        
+
         <div class="row">
             <div class="vegetables-sand food-type col-md-6">
                 <div class="bs-example">
@@ -155,10 +153,10 @@
                                             Types of Vegetables
                                         </button>
                         <ul class="dropdown-menu">
-                            <li class="tomatoes"><a href="#" data-value="tomatoes">Tomatoes<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
-                            <li class="cucumber"><a href="#" data-value="cucumber">Cucumber<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
-                            <li class="salad"><a href="#" data-value="salad">Salad<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
-                            <li class="olives"><a href="#" data-value="olives">Olives<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                            <li class="ingredients" data-value="tomatoes"><a href="#">Tomatoes<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                            <li class="ingredients" data-value="cucumber"><a href="#">Cucumber<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                            <li class="ingredients" data-value="salad"><a href="#">Salad<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                            <li class="ingredients" data-value="olives"><a href="#">Olives<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
                         </ul>
                     </div>
                 </div>
@@ -174,10 +172,10 @@
                                                     Types of Sauces
                                                   </button>
                         <ul class="dropdown-menu ">
-                            <li class="white sauce"><a href="#" data-value="white sauce">White Sauce<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
-                            <li class="mayo"><a href="#" data-value="mayo">Mayo<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
-                            <li class="ketchup"><a href="#" data-value="ketchup">Ketchup<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
-                            <li class="spicy sauce"><a href="#" data-value="spicy sauce">Spicy Sauce<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                            <li class="ingredients" data-value="white sauce"><a href="#">White Sauce<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                            <li class="ingredients" data-value="mayo"><a href="#">Mayo<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                            <li class="ingredients" data-value="ketchup"><a href="#">Ketchup<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
+                            <li class="ingredients" data-value="spicy sauce"><a href="#">Spicy Sauce<button class="btn btn-dropdown col-md-offset-4"> ADD </button></a></li>
                         </ul>
                     </div>
                 </div>
@@ -187,10 +185,82 @@
 
 
 
+        <!-- /////READY MADE/// -->
+        <div class="container readymade">
+            <div class="row">
+                <h1>Ready Made Sandwiches</h1>
+            </div>
+            <div class="row">
+                <h2>Dairy Sandwiches</h2>
+                <div class="col-md-4 madesandwich ">
+                    <div class="title" data-value="olive">
+                        <h3>Olive sandwich</h3>
+                        <img class="sandwich-img" src="http://mynewroots.org/images/greenolive.jpg"> </img>
+                        <div class="middle">
+                            <p class="sandwich-explanation">
+                                <span class="title-img">Olive Sandwich : </span><br> The best sandwich in the world <br>                                Ingredients : Plain Bread,Olive,Salad,Mayo <br>
+                                <button type="button" class="pick-btn col-md-offset-5">Pick</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 madesandwich">
+                    <div class="title" data-value="tuna">
+                        <h3>Tuna sandwich</h3>
+                        <img class="sandwich-img " src="http://img.taste.com.au/5UjgjJij/taste/2016/11/tuna-celery-mayo-sandwich-62594-1.jpeg"></img>
+                        <div class="middle">
+                            <p class="sandwich-explanation">
+                                <span class="title-img">Tuna Sandwich : </span><br> The best sandwich in the world <br> Ingredients
+                                : White Bread,Vegan Tuna,Salad,Mayo <br>
+                                <button type="button" class="pick-btn col-md-offset-5">Pick</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 madesandwich">
+                    <div class="title" data-value="goat">
+                        <h3>Goat Cheese sandwich</h3>
+                        <img class="sandwich-img " src="http://farm8.staticflickr.com/7430/13038734323_a23122d428.jpg"></img>
+                        <div class="middle">
+                            <p class="sandwich-explanation">
+                                <span class="title-img">Goat Sandwich : </span><br> The best sandwich in the world <br> Ingredients
+                                : Plain Bread,Goat cheese,Salad,white sauce <br>
+                                <button type="button" class="pick-btn col-md-offset-5">Pick</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
 
 
+
+            <div class="row">
+                <h2>Meat Sandwiches</h2>
+                <div class="col-md-4 madesandwich">
+                    <h3>Goat Cheese sandwich</h3>
+                </div>
+                <div class="col-md-4 madesandwich">
+                    <h3>Goat Cheese sandwich</h3>
+                </div>
+                <div class="col-md-4 madesandwich">
+                    <h3>Goat Cheese sandwich</h3>
+                </div>
+            </div>
+            <div class="row">
+                <h2>Vegetarian Sandwiches</h2>
+                <div class="col-md-4 madesandwich">
+                    <h3>Goat Cheese sandwich</h3>
+                </div>
+                <div class="col-md-4 madesandwich">
+                    <h3>Goat Cheese sandwich</h3>
+                </div>
+                <div class="col-md-4 madesandwich">
+                    <h3>Goat Cheese sandwich</h3>
+                </div>
+            </div>
         </div>
-
+        </div>
 
 
 
